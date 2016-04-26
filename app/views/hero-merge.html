@@ -1,0 +1,146 @@
+<h3>Create a New Hero from existing Heroes</h3>
+
+<form class="form-horizontal" role="form"  ng-submit="createMergedHero(newHero)" ng-controller="HeroController">
+
+    <div class="form-group">
+        <div class="col-sm2">Hero 1</div>
+        <label for="hero1" class="col-sm-2 control-label">Hero 1</label>
+    	<div class="col-sm-10">
+            <select class="form-control" id="hero1" ng-model="hero1" name="hero1" ng-options="hero.hero_name for hero in heroes track by hero.id" required>
+            	<option value="">---Select Hero---</option>
+          	</select>
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm2">Hero 2</div>
+        <label for="hero1" class="col-sm-2 control-label">Hero 2</label>
+    	<div class="col-sm-10">
+            <select class="form-control" id="hero2" ng-model="hero2" name="hero2" ng-options="hero.hero_name for hero in heroes track by hero.id" required>
+            	<option value="">---Select Hero---</option>
+          	</select>
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <label for="hero_name" class="col-sm-2 control-label">Hero Name</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="newHero.hero_name" class="form-control" id="hero_name" placeholder="Hero Name" required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="real_name" class="col-sm-2 control-label">Real Name</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="newHero.real_name" class="form-control" id="real_name" placeholder="Real Name"required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label">Gender</label>
+        <div class="col-sm-10">
+            <input type="radio" ng-model="newHero.gender" id="genderMale" value="Male" ng-required="!newHero.gender" /> male 	
+        </div>
+        <div class="col-sm-10">
+            <input type="radio" ng-model="newHero.gender" id="genderFemale" value="Female" ng-required="!newHero.gender" /> female
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">Attributes</div>
+        
+        <label for="attributesInteligence" class="col-sm-2 control-label">Intelligence</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="attributes.intelligence" ng-model="newHero.attributes.intelligence" name="attributesInteligence" required>
+            	<option value="">---Select Intelligence---</option>
+            	<option value="{{hero1.attributes.intelligence}}">{{hero1.hero_name}} - {{hero1.attributes.intelligence}}</option>
+            	<option value="{{hero2.attributes.intelligence}}">{{hero2.hero_name}} - {{hero2.attributes.intelligence}}</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesStrength" class="col-sm-2 control-label">Strength</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.strength" ng-model="newHero.attributes.strength" name="attributesStrength" required>
+            	<option value="">---Select Strength---</option>
+            	<option value="{{hero1.attributes.strength}}">{{hero1.hero_name}} - {{hero1.attributes.strength}}</option>
+            	<option value="{{hero2.attributes.strength}}">{{hero2.hero_name}} - {{hero2.attributes.strength}}</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesSpeed" class="col-sm-2 control-label">Speed</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.speed" ng-model="newHero.attributes.speed" name="attributesSpeed" required>
+            	<option value="">---Select Speed---</option>
+            	<option value="{{hero1.attributes.speed}}">{{hero1.hero_name}} - {{hero1.attributes.speed}}</option>
+            	<option value="{{hero2.attributes.speed}}">{{hero2.hero_name}} - {{hero2.attributes.speed}}</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesDurability" class="col-sm-2 control-label">Durability</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.durability" ng-model="newHero.attributes.durability" name="attributesDurability" required>
+            	<option value="">---Select Durability---</option>
+            	<option value="{{hero1.attributes.durability}}">{{hero1.hero_name}} - {{hero1.attributes.durability}}</option>
+            	<option value="{{hero2.attributes.durability}}">{{hero2.hero_name}} - {{hero2.attributes.durability}}</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesPower" class="col-sm-2 control-label">Power</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.power" ng-model="newHero.attributes.power" name="attributesPower" required>
+            	<option value="">---Select Power---</option>
+            	<option value="{{hero1.attributes.power}}">{{hero1.hero_name}} - {{hero1.attributes.power}}</option>
+            	<option value="{{hero2.attributes.power}}">{{hero2.hero_name}} - {{hero2.attributes.power}}</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesCombat" class="col-sm-2 control-label">Combat</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.combat" ng-model="newHero.attributes.combat" name="attributesCombat" required>
+            	<option value="">---Select Combat---</option>
+            	<option value="{{hero1.attributes.combat}}">{{hero1.hero_name}} - {{hero1.attributes.combat}}</option>
+            	<option value="{{hero2.attributes.combat}}">{{hero2.hero_name}} - {{hero2.attributes.combat}}</option>
+          	</select>
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <label for="weaknesses" class="col-sm-2 control-label">Weaknesses</label>
+        <div class="col-sm-10">
+        	<input type="text" class="form-control" id="weaknesses" placeholder="Weaknesses" value="{{combinedWeaknesses()}}" ng-disabled="true" />
+        </div>
+    </div>
+
+    <label for="attributesPower" class="col-sm-2 control-label">New Hero Powers</label>
+    <div class="col-sm-10">
+        <h5>Select two heros above to populate thier powers here and then select up to five powers for your new hero when the check boxess become available.</h5>
+        <p class="muted"> <small><strong>Note:</strong> if powers are duplicated amongst the two selected heros the checkboxes will be active in both list but will only count as one power when merging into your new hero.</small></p>
+
+        <div class="col-sm-6">
+            <span><h5><u>Hero 1 Powers List</u></h5></span>
+            <span ng-repeat="power in hero1.powers">
+        		<label class="checkbox" for="{{power}}">
+        			<input type='checkbox' ng-model="powersSelected[power]" id="{{power}}" value="{{power}}"
+        			ng-change="checkChanged(power)" ng-disabled="checked==limit" > {{power}}
+        		</label>	
+            </span>
+        </div>
+
+        <div class="col-sm-6">
+            <span><h5><u>Hero 2 Powers List</u></h5></span>
+            <span ng-repeat="power in hero2.powers">
+            	<label class="checkbox" for="{{power}}">
+            		<input type='checkbox' ng-model="powersSelected[power]" id="{{power}}" value="{{power}}"
+        			ng-change="checkChanged(power)" ng-disabled="checked==limit"> {{power}}
+        		</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary pull-right" value="Create Hero"/>
+        </div>
+    </div>
+
+</form>
+
+

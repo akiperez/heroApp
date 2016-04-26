@@ -1,0 +1,95 @@
+<form class="form-horizontal" role="form"  ng-submit="updateHero(hero.id, hero)" ng-controller="HeroController">
+    
+    <div class="form-group">
+        <label for="hero_name" class="col-sm-2 control-label">Hero Name</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="hero.hero_name" class="form-control" id="hero_name" required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="real_name" class="col-sm-2 control-label">Real Name</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="hero.real_name" class="form-control" id="real_name" placeholder="Real Name"required/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label">Gender</label>
+        <div class="col-sm-10">
+            <input type="radio" ng-model="hero.gender" id="genderMale" value="Male" ng-required="!hero.gender" /> male 	
+        </div>
+        <div class="col-sm-10">
+            <input type="radio" ng-model="hero.gender" id="genderFemale" value="Female" ng-required="!hero.gender" /> female
+        </div>
+    </div>
+
+    <div class="form-group">
+        
+        <div class="col-sm-12">Attributes</div>
+        
+        <label for="attributesInteligence" class="col-sm-2 control-label">Intelligence</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="attributes.intelligence" ng-model="hero.attributes.intelligence" name="attributesInteligence" ng-options="val for val in getOptions()">
+            	<option value="">---Select Intelligence---</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesStrength" class="col-sm-2 control-label">Strength</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.strength" ng-model="hero.attributes.strength" name="attributesStrength" ng-options="val for val in getOptions()">
+            	<option value="">---Select Strength---</option>
+          	</select>
+
+    	</div>
+
+    	<label for="attributesSpeed" class="col-sm-2 control-label">Speed</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.speed" ng-model="hero.attributes.speed" name="attributesSpeed" ng-options="val for val in getOptions()">
+            	<option value="">---Select Speed---</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesDurability" class="col-sm-2 control-label">Durability</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.durability" ng-model="hero.attributes.durability" name="attributesDurability" ng-options="val for val in getOptions()">
+            	<option value="">---Select Durability---</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesPower" class="col-sm-2 control-label">Power</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.power" ng-model="hero.attributes.power" name="attributesPower" ng-options="val for val in getOptions()">
+            	<option value="">---Select Power---</option>
+          	</select>
+    	</div>
+
+    	<label for="attributesCombat" class="col-sm-2 control-label">Combat</label>
+    	<div class="col-sm-10">
+    		<select class="form-control" id="attributes.combat" ng-model="hero.attributes.combat" name="attributesCombat" ng-options="val for val in getOptions()">
+            	<option value="">---Select Combat---</option>
+          	</select>
+    	</div>
+
+    </div>
+
+    <div class="form-group">
+    	<label for="powers" class="col-sm-2 control-label">Powers<br/><small>comma seperated</small></label>
+    	<div class="col-sm-10">
+    		 <input type="text" ng-model="hero.powers" class="form-control" id="powers" placeholder="Powers" ng-list required />
+    	</div>    
+    </div>
+
+    <div class="form-group">
+        <label for="weaknesses" class="col-sm-2 control-label">Weaknesses<br/><small>comma seperated</small></label>
+        <div class="col-sm-10">
+        	<input type="text" ng-model="hero.weaknesses" class="form-control" id="weaknesses" placeholder="Weaknesses" ng-list required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-primary" value="Save"/>
+        </div>
+    </div>
+</form>

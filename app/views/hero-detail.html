@@ -1,0 +1,44 @@
+<div class="hero">
+    <table class="table herotable">
+    	<tr>
+        	<td><h3>Details for {{hero.hero_name}}</h3></td>
+        	<td></td>
+    	</tr>
+	    <tr>
+	        <td>Hero Id</td>
+	        <td>{{hero.id}}</td>
+	    </tr>
+	    <tr>
+	        <td>Hero Name</td>
+	        <td>{{hero.hero_name}}</td>
+	    </tr>
+	    <tr>
+	        <td>Real Name</td>
+	        <td>{{hero.real_name}}</td>
+	    </tr>
+	    <tr>
+	        <td>Gender</td>
+	        <td>{{hero.gender}}</td>
+	    </tr>
+	    <tr>
+	        <td>Attributes</td>
+	        <td><p ng-repeat="(key, value) in hero_attribs">{{key}} : {{value}}</p></td>
+	    </tr>
+	    <tr>
+	        <td>Powers</td>
+	        <td><p ng-repeat="power in hero_powers">{{power}}</p></td>
+	    </tr>
+	     <tr>
+	        <td>Weaknesses</td>
+	        <td><p ng-repeat="weakness in hero_weaknesses">{{weakness}}</p></td>
+	    </tr>
+	     <tr>
+	        <td></td>
+	        <td>
+	            <div>
+	                <a class="btn btn-primary" ng-href="#/edit/{{hero.id}}">Edit Hero</a>
+	            </div>
+	        </td>
+	    </tr>
+	</table>
+</div>

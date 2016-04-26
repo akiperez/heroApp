@@ -1,0 +1,17 @@
+<table class="table heroTable">
+    <tr>
+        <td><h3>All Heroes</h3></td>
+        <td></td>
+    </tr>
+    <tr ng-repeat="hero in heroes">
+        <td>Hero: {{hero.hero_name}}</td>
+        <td>
+            <a class="btn btn-primary" ng-href="#/heroes/{{hero.id}}">View</a>
+            <a class="btn btn-danger"  ng-click="deleteHero(hero.id)">Delete</a>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><p><a class="btn btn-primary offset4" ng-href="#/add/">Create New Hero</a></p></td>
+    </tr>
+</table>
